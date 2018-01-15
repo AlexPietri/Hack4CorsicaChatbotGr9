@@ -11,12 +11,22 @@ class CategorieTableSeeder extends Seeder
      */
     public function run()
     {
-        $categorie1 = new Categorie();
-        $categorie1->label = '';
-        $categorie1->description = '';
-
-        $categorie2 = new Categorie();
-        $categorie2->label = '';
-        $categorie2->description = '';
+        $categorie = new Categorie();
+        
+        $array = [
+            "communiti" => "définition communiti",
+            "signup" => "inscription",
+            "contact" => "contact",
+            "network" => "réseau",
+            "other" => "autres",
+            "evolution" => "évolution",
+            "functionality" => "fonctionnalité",
+            "API" => "API",
+        ]
+        
+        foreach ($value as $i => $val) {
+            $categorie->label = $value[$i];
+            $categorie->description = $val;
+        }
     }
 }
