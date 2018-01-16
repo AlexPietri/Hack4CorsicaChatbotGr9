@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use BotMan\BotMan\BotMan;
 use Illuminate\Http\Request;
 use App\Conversations\ExampleConversation;
+use GuzzleHttp\Client;
 use DB;
 
 class BotManController extends Controller
@@ -20,12 +21,20 @@ class BotManController extends Controller
             $bot->reply('Coucou toi :)');
         });
 
+        $botman->hears('test {api}', function (Botman $bot, $api) {
+            $bot->types();
+
+            $type = "projets";
+            $params = "&lieux=Corte,%20France";
+            $results = $this->getAPI($api, $type, $params);
+            $bot->reply($results);
+        });
+
         $botman->hears(' {text}', function (Botman $bot, $text) {
             $bot->types();
 
             // $IDQuestion = DB::table('questions')->select('id')->where('text', 'like', '%'.$text.'%')->first();
             // $result = DB::table('answers')->select('text')->where('question_id', '=', $IDQuestion)->first();
-
 
             /*
             // Tableau de texte avec la séparation espace
@@ -71,6 +80,26 @@ class BotManController extends Controller
     public function web()
     {
         return view('web');
+    }
+
+    public function getAPI($api, $type, $params)
+    {
+        $client = new Client();
+        $res = $client->request('POST', 'https://dev.communiti.corsica/app/test.php', [
+            'form_params' => [
+                'action' => 'list.php',
+                'email' => 'univ@corte.php',
+                'pwd' => 'corte',
+                'types' => $type,
+                'parametres' => $params,
+            ]
+        ]);
+        if ($res->getStatusCode() == 200) {
+            echo $res->getHeader('content-type');
+            echo $res->getBody();
+        }
+
+        // return $data;
     }
 
     /**
