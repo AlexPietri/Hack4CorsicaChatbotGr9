@@ -38,6 +38,7 @@ class BotManController extends Controller
             } else {
                 $IDQuestion = DB::table('questions')->select('id')->where('text', 'like', '%'.$text.'%')->get();
                 $result = DB::table('answers')->select('id')->where('question_id', '=', $IDQuestion)->get();
+                $result = "La réponse";
             }
 
             $bot->reply($result);
