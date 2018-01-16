@@ -64,17 +64,17 @@ class BotManController extends Controller
 
             if (count($results) > 3) {
                 $bot->startConversation(new OnboardingConversation);
-            }
-
-            $text = "";
-            $i = 1;
-            foreach ($results as $value) {
-                if ($i <= 3) {
-                    $text .= "".$value["nom"]." | \n\n https://www.communiti.corsica/profil_membre.php?idProfil=".$value["id"];
+            } else {
+                $text = "";
+                $i = 1;
+                foreach ($results as $value) {
+                    if ($i <= 3) {
+                        $text .= "".$value["nom"]." | \n\n https://www.communiti.corsica/profil_membre.php?idProfil=".$value["id"];
+                    }
                 }
+                
+                $bot->reply($text);
             }
-            
-            $bot->reply($text);
         });
 
         $botman->hears('- {text}', function ($bot, $text) {
