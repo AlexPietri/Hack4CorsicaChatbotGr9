@@ -14,8 +14,8 @@ class CreateHeHasTable extends Migration
     public function up()
     {
         Schema::create('heHas', function (Blueprint $table) {
-            $table->integer('question_id');
-            $table->integer('tag_id');
+            $table->integer('question_id')->unsigned()->nullable();
+            $table->integer('tag_id')->unsigned()->nullable();
 
             $table->primary(array('question_id', 'tag_id')); 
 
