@@ -104,10 +104,11 @@ class BotManController extends Controller
 
         if ($res->getStatusCode() == 200) {
             $res->getHeader('content-type');
-            $res->getBody();
+            // $res->getBody();
+            $results = json_decode($res->getBody()->getContents());
         }
 
-        // return $data;
+        return $results;
     }
 
     /**
