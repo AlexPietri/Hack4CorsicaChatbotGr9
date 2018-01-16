@@ -15,7 +15,6 @@ class Test2Conversation extends Conversation
     }
 
     public function checkName() {
-    	$this->typesAndWaits(2);
         $this->say("J'ai trouvé la personne que vous cherchez ! \n https://www.communiti.corsica/profil_membre.php?idProfil=253");
     }
 
