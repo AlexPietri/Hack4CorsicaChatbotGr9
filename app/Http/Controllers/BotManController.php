@@ -42,7 +42,7 @@ class BotManController extends Controller
             $bot->reply($results);
         });
 
-        $botman->hears(' {text} ?', function (Botman $bot, $text) {
+        $botman->hears('- {text} ?', function (Botman $bot, $text) {
             $bot->types();
 
             // Tableau de texte avec la séparation espace
