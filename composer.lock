@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e09949c468229df511e1cc3c02285cbd",
+    "content-hash": "b0f7c35b8e9a1b9f0b491dfb8e4b6720",
     "packages": [
         {
             "name": "botman/botman",
@@ -75,16 +75,16 @@
         },
         {
             "name": "botman/driver-web",
-            "version": "1.0.0",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/botman/driver-web.git",
-                "reference": "ad15ef88f57712dab883fb56edcbb237ead77175"
+                "reference": "78f7b186e3928285f0311ba8cf5474c7100566dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/botman/driver-web/zipball/ad15ef88f57712dab883fb56edcbb237ead77175",
-                "reference": "ad15ef88f57712dab883fb56edcbb237ead77175",
+                "url": "https://api.github.com/repos/botman/driver-web/zipball/78f7b186e3928285f0311ba8cf5474c7100566dc",
+                "reference": "78f7b186e3928285f0311ba8cf5474c7100566dc",
                 "shasum": ""
             },
             "require": {
@@ -120,7 +120,7 @@
                 "bot",
                 "web"
             ],
-            "time": "2017-08-28T13:48:28+00:00"
+            "time": "2017-12-18T11:37:12+00:00"
         },
         {
             "name": "botman/studio-addons",
