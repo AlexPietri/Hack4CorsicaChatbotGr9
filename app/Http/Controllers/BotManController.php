@@ -26,7 +26,7 @@ class BotManController extends Controller
             $bot->reply(' ̶1̶3̶   5+8');
         });
 
-        $botman->hears('Y a t\'il des projets qui recrute sur corte ?', function (Botman $bot, $api) {
+        $botman->hears('Projets qui recrute sur corte ?', function (Botman $bot, $api) {
             $bot->types();
 
             $type = "projets";
@@ -37,7 +37,7 @@ class BotManController extends Controller
             $bot->reply($results);
         });
 
-        $botman->hears('Y a t\'il des membres compétent en dev info à Ajaccio', function (Botman $bot, $api) {
+        $botman->hears('Membres compétant en dev info à Ajaccio', function (Botman $bot, $api) {
             $bot->types();
 
             $type = "membres";
@@ -58,7 +58,7 @@ class BotManController extends Controller
             $bot->types();
 
             // Tableau de texte avec la séparation espace
-            if (preg_match("[\s]", $text)) {
+            /*if (preg_match("[\s]", $text)) {
                 $array = explode(" ", $text);
 
                 $query = [];
@@ -75,7 +75,12 @@ class BotManController extends Controller
                 $result = DB::table('answers')->select('text')->where('question_id', '=', $IDQuestion->id)->first();
 
                 $bot->reply($result->text);
-            }
+            }*/
+
+            $IDQuestion = DB::table('questions')->select('id')->where('text', 'like', '%'.$text.'%')->first();
+            $result = DB::table('answers')->select('text')->where('question_id', '=', $IDQuestion->id)->first();
+
+            $bot->reply($result->text);
         });
 
         $botman->fallback(function($bot) {
