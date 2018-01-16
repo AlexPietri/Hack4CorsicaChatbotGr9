@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use BotMan\BotMan\BotMan;
 use Illuminate\Http\Request;
 use App\Conversations\ExampleConversation;
-use App\Http\Conversations\Test2Conversation;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
 use DB;
@@ -63,7 +62,7 @@ class BotManController extends Controller
             $results = $this->getAPI($type, $params);
 
             if (count($results) > 3) {
-                $bot->startConversation(new Test2Conversation);
+                $bot->startConversation(new ExampleConversation());
             } else {
                 $text = "";
                 $i = 1;
