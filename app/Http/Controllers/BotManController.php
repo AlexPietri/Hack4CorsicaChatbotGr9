@@ -30,11 +30,15 @@ class BotManController extends Controller
             $bot->types();
 
             $type = "projets";
-            $params = "&besoins=besoin&lieux=".$city.",%20France";
+            $params = "&besoins=equipe&lieux=".$city.",%20France";
             $results = $this->getAPI($type, $params);
-            // $results = $results["villes"];
+
+            $text = "";
+            foreach ($results as $value) {
+                $text = "".$value["nom"]." | \n\n https://www.communiti.corsica/page_projet.php?idProjet=".$value["id"].;
+            }
             
-            $bot->reply($results);
+            $bot->reply($text);
         });
 
         $botman->hears('Membres compétant en dev info à {city}', function ($bot, $city) {
@@ -43,14 +47,8 @@ class BotManController extends Controller
             $type = "membres";
             $params = "&lieux=".$city.",%20France";
             $results = $this->getAPI($type, $params);
-            // $results = $results["villes"];
+            $results = $results[0]["villes"];
             
-            $bot->reply($results);
-        });
-
-        $botman->hears('Taux en {currency} ', function ($bot, $currency) {
-            $bot->types();
-            $results = $this->getCurrency($currency);
             $bot->reply($results);
         });
 
@@ -77,10 +75,16 @@ class BotManController extends Controller
                 $bot->reply($result->text);
             }*/
 
-            //$IDQuestion = DB::table('questions')->select('id')->where('text', 'like', '%'.$text.'%')->first();
-            //$result = DB::table('answers')->select('text')->where('question_id', '=', $IDQuestion->id)->first();
+            $IDQuestion = DB::table('questions')->select('id')->where('text', 'like', '%'.$text.'%')->first();
+            $result = DB::table('answers')->select('text')->where('question_id', '=', $IDQuestion->id)->first();
 
             $bot->reply($text);
+        });
+
+        $botman->hears('Taux en {currency} ', function ($bot, $currency) {
+            $bot->types();
+            $results = $this->getCurrency($currency);
+            $bot->reply($results);
         });
 
         $botman->fallback(function($bot) {
@@ -89,22 +93,6 @@ class BotManController extends Controller
         });
 
         $botman->listen();
-    }
-
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function tinker()
-    {
-        return view('tinker');
-    }
-
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function web()
-    {
-        return view('web');
     }
 
     public function getAPI($type, $params)
@@ -122,8 +110,7 @@ class BotManController extends Controller
 
         if ($res->getStatusCode() == 200) {
             // $res->getHeader('content-type');
-            // $results = json_decode($res->getBody()->getContents(), true);
-            $results = $res->getBody()->getContents();
+            $results = json_decode($res->getBody()->getContents(), true);
         } else {
             $results = null;
         }
@@ -145,6 +132,22 @@ class BotManController extends Controller
         }
 
         return $data;
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function tinker()
+    {
+        return view('tinker');
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function web()
+    {
+        return view('web');
     }
 
     /**
