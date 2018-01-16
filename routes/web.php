@@ -30,7 +30,7 @@ Route::get('/botman/tinker', 'BotManController@tinker');
 Route::get('/botman/web', 'BotManController@web');
 
 Route::post('/admin', function () {
-    return view('admin');
+    return view('welcome');
 });
 
 // Route::post('/add', 'HomeController@add')->name('addQuestionAnswer');
