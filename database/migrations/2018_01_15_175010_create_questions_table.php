@@ -16,7 +16,7 @@ class CreateQuestionsTable extends Migration
         Schema::create('questions', function (Blueprint $table) {
             $table->increments('id');
             $table->longText('text');
-            $table->integer('categorie_id');
+            $table->integer('categorie_id')->nullable();
 
             $table->foreign('categorie_id')->references('id')->on('categories');
         });

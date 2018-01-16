@@ -11,12 +11,8 @@ class HeHasTableSeeder extends Seeder
      */
     public function run()
     {
-        $hehas1 = new HeHas();
-        $hehas1->question_id = '';
-        $hehas1->tag_id = ;
-
-        $hehas2 = new HeHas();
-        $hehas2->question_id = '';
-        $hehas2->tag_id = ;
+        $hehas = new HeHas();
+        $hehas->question_id = 1;
+        $hehas->tag_id = 1;
     }
 }
