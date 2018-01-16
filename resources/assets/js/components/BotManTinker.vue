@@ -24,11 +24,6 @@
     ul.ChatLog {
         list-style: none;
     }
-
-    .ChatLog {
-        max-width: 80em;
-        margin: 0 auto;
-    }
     .ChatLog .ChatLog__entry {
         margin: .5em;
     }

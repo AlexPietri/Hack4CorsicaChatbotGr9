@@ -29,6 +29,10 @@
         .content {
             text-align: center;
         }
+
+        .ChatLog {
+            max-width: 80em !important;
+        }
     </style>
 </head>
 <body>
