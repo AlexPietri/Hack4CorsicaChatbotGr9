@@ -48,7 +48,7 @@ class BotManController extends Controller
             $i = 1;
             foreach ($results as $value) {
                 if ($i <= 3) {
-                    $text .= "".$value["nom"]." | \n\n https://www.communiti.corsica/page_projet.php?idProjet=".$value["id"];
+                    $text .= "".$value["nom"]." -> \n\n https://www.communiti.corsica/page_projet.php?idProjet=".$value["id"]."| \n\n";
                 }
             }
             
