@@ -31,10 +31,8 @@ class BotManController extends Controller
             $type = "projets";
             $params = "&lieux=Corte,%20France";
             $results = $this->getAPI($api, $type, $params);
-            var_dump($results);
-            die();
-
-            // $bot->reply($results);
+            
+            $bot->reply($results);
         });
 
         $botman->hears(' {text}', function (Botman $bot, $text) {
