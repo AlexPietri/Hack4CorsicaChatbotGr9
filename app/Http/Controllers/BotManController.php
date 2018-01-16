@@ -99,7 +99,7 @@ class BotManController extends Controller
                 'email' => 'univ@corte.php',
                 'pwd' => 'corte',
                 'type' => $type,
-                'parametres' => $params,
+                'parametres' => $params
             ]
         ]);
 
