@@ -78,7 +78,7 @@ class BotManController extends Controller
             $IDQuestion = DB::table('questions')->select('id')->where('text', 'like', '%'.$text.'%')->first();
             $result = DB::table('answers')->select('text')->where('question_id', '=', $IDQuestion->id)->first();
 
-            $bot->reply($text);
+            $bot->reply($result->text);
         });
 
         $botman->hears('Taux en {currency} ', function ($bot, $currency) {
