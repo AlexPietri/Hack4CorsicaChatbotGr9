@@ -96,7 +96,7 @@ class BotManController extends Controller
         $res = $client->post('https://dev.communiti.corsica/app/test.php', [
             'form_params' => [
                 'action' => 'list.php',
-                'email' => 'univ@corte.php',
+                'email' => 'univ@corte.com',
                 'pwd' => 'corte',
                 'type' => $type,
                 'parametres' => $params
@@ -105,7 +105,7 @@ class BotManController extends Controller
 
         if ($res->getStatusCode() == 200) {
             $res->getHeader('content-type');
-            $results = $res->getBody()->getContents();//json_decode($res->getBody()->getContents());
+            $results = json_decode($res->getBody()->getContents(), true);
         } else {
             // $results = null;
         }
