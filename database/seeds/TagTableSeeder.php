@@ -78,8 +78,8 @@ class TagTableSeeder extends Seeder
             "bien",
         ];
 
-        foreach ($array as $i) {
-            $tag->label = $array[$i];
+        foreach ($array as $value) {
+            $tag->label = $value;
         }
     }
 }
