@@ -58,5 +58,7 @@ class HomeController extends Controller
         $answer->text = $reponse;
         $answer->question_id = $question->id;
         $answer->save();
+
+        return view('welcome');
     }
 }
