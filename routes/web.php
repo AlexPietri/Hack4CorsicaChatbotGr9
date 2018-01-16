@@ -29,7 +29,7 @@ Route::match(['get', 'post'], '/botman', 'BotManController@handle');
 Route::get('/botman/tinker', 'BotManController@tinker');
 Route::get('/botman/web', 'BotManController@web');
 
-Route::post('/add', function () {
+Route::post('/admin', function () {
     return view('admin');
 });
 
