@@ -62,7 +62,7 @@ class BotManController extends Controller
             $results = $this->getAPI($type, $params);
 
             if (count($results) > 3) {
-                $bot->startConversation(new ExampleConversation());
+                $this->startConversation($bot);
             } else {
                 $text = "";
                 $i = 1;
