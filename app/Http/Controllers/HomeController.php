@@ -37,6 +37,7 @@ class HomeController extends Controller
      */
     public function add(Request $request)
     {
+        /*
         $request->validate([
             'question' => 'required|string',
             'reponse' => 'required|string',
@@ -58,6 +59,7 @@ class HomeController extends Controller
         $answer->text = $reponse;
         $answer->question_id = $question->id;
         $answer->save();
+        */
 
         return view('welcome');
     }

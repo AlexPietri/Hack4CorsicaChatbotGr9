@@ -32,6 +32,7 @@ class BotManController extends Controller
             $type = "projets";
             $params = "&lieux=Corte,%20France";
             $results = $this->getAPI($api, $type, $params);
+            $results = $results["villes"];
             
             $bot->reply($results);
         });
@@ -42,6 +43,7 @@ class BotManController extends Controller
             $type = "membres";
             $params = "&lieux=Ajaccio,%20France";
             $results = $this->getAPI($api, $type, $params);
+            $results = $results["villes"];
             
             $bot->reply($results);
         });
