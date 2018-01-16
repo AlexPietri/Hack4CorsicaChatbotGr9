@@ -2,6 +2,10 @@
 
 namespace App\Http\Conversations;
 
+use Illuminate\Foundation\Inspiring;
+use BotMan\BotMan\Messages\Incoming\Answer;
+use BotMan\BotMan\Messages\Outgoing\Question;
+use BotMan\BotMan\Messages\Outgoing\Actions\Button;
 use BotMan\BotMan\Messages\Conversations\Conversation;
 
 class Test2Conversation extends Conversation
@@ -13,7 +17,7 @@ class Test2Conversation extends Conversation
             // Save result
             $this->firstname = $answer->getText();
 
-            $this->say('Je traite votre demande, très cher ...');
+            $this->say('Je traite votre demande, très cher ... avec le prénom : '.$this->firstname);
             $this->checkName();
         });
     }
