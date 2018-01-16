@@ -23,7 +23,7 @@ class BotManController extends Controller
         });
 
         $botman->hears(13, function (BotMan $bot) {
-            $bot->reply('Coucou toi :)');
+            $bot->reply(' ̶1̶3̶  5+8');
         });
 
         $botman->hears('test {api}', function (Botman $bot, $api) {
@@ -33,6 +33,12 @@ class BotManController extends Controller
             $params = "&lieux=Corte,%20France";
             $results = $this->getAPI($api, $type, $params);
             
+            $bot->reply($results);
+        });
+
+        $botman->hears('Give me {currency} rates', function ($bot, $currency) {
+            $bot->types();
+            $results = $this->getCurrency($currency);
             $bot->reply($results);
         });
 
@@ -103,11 +109,26 @@ class BotManController extends Controller
 
         if ($res->getStatusCode() == 200) {
             $res->getHeader('content-type');
-            // $res->getBody();
-            $results = json_decode($res->getBody()->getContents());
+            $results = json_decode($res->getBody());
+        } else {
+            $results = null;
         }
 
         return $results;
+    }
+
+    public function getCurrency($currency)
+    {
+        $client = new Client();
+        $uri = 'http://api.fixer.io/latest?base='.$currency;
+        $response = $client->get($uri);          
+        $results = json_decode($response->getBody()->getContents());
+        $date = date('d F Y', strtotime($results->date));
+        $data = "Here's the exchange rates based on ".$currency." currency\nDate: ".$date."\n";
+        foreach($results->rates as $k => $v) {
+            $data .= $k." - ".$v."\n";
+        }
+        return $data;
     }
 
     /**
