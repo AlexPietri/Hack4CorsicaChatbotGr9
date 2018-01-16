@@ -20,6 +20,7 @@ class BotManController extends Controller
             $bot->reply('Coucou toi :)');
         });
 
+        /*
         $botman->hears('{text}', function ($bot, $text) {
             $bot->types();
 
@@ -42,6 +43,7 @@ class BotManController extends Controller
 
             $bot->reply($result);
         });
+        */
 
         $botman->fallback(function($bot) {
             $bot->types();
