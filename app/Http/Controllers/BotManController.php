@@ -26,13 +26,13 @@ class BotManController extends Controller
             $bot->reply(' ̶1̶3̶   5+8');
         });
 
-        $botman->hears('Projets qui recrute sur corte ?', function (Botman $bot, $api) {
+        $botman->hears('Projets qui recrute sur corte', function (Botman $bot, $api) {
             $bot->types();
 
             $type = "projets";
             $params = "&lieux=Corte,%20France";
             $results = $this->getAPI($api, $type, $params);
-            $results = $results["villes"];
+            // $results = $results["villes"];
             
             $bot->reply($results);
         });
@@ -43,7 +43,7 @@ class BotManController extends Controller
             $type = "membres";
             $params = "&lieux=Ajaccio,%20France";
             $results = $this->getAPI($api, $type, $params);
-            $results = $results["villes"];
+            // $results = $results["villes"];
             
             $bot->reply($results);
         });
@@ -122,7 +122,8 @@ class BotManController extends Controller
 
         if ($res->getStatusCode() == 200) {
             // $res->getHeader('content-type');
-            $results = json_decode($res->getBody()->getContents(), true);
+            // $results = json_decode($res->getBody()->getContents(), true);
+            $results = $res->getBody()->getContents();
         } else {
             $results = null;
         }
