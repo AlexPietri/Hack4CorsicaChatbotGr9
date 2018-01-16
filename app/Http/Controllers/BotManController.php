@@ -23,8 +23,8 @@ class BotManController extends Controller
         $botman->hears(' {text}', function (Botman $bot, $text) {
             $bot->types();
 
-            $IDQuestion = DB::table('questions')->select('id')->where('text', 'like', '%'.$text.'%')->first();
-            $result = DB::table('answers')->select('text')->where('question_id', '=', $IDQuestion)->first();
+            // $IDQuestion = DB::table('questions')->select('id')->where('text', 'like', '%'.$text.'%')->first();
+            // $result = DB::table('answers')->select('text')->where('question_id', '=', $IDQuestion)->first();
 
 
             /*
@@ -46,7 +46,7 @@ class BotManController extends Controller
             }
             */
 
-            $bot->reply($result->text);
+            $bot->reply($text);
         });
 
         $botman->fallback(function($bot) {
