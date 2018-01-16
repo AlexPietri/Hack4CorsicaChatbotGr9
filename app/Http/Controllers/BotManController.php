@@ -30,7 +30,7 @@ class BotManController extends Controller
             $bot->types();
 
             $type = "projets";
-            $params = "&lieux=".$city.",%20France";
+            $params = "&besoins=besoin&lieux=".$city.",%20France";
             $results = $this->getAPI($type, $params);
             // $results = $results["villes"];
             
