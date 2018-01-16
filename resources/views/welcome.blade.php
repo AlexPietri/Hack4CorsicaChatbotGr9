@@ -59,6 +59,7 @@
         </div>
 
         <div class="links">
+            <a href="/botman/web">Web</a>
             <a href="/botman/tinker">Tinker</a>
             <a href="https://botman.io/docs" target="_blank">Documentation</a>
             <a href="https://twitter.com/botman_io" target="_blank">News</a>
