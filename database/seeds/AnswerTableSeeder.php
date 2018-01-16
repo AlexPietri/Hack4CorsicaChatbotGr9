@@ -44,7 +44,7 @@ class AnswerTableSeeder extends Seeder
 
         foreach ($array as $i => $val) {
             $answer = new Answer();
-            $answer->text = $array[$i];
+            $answer->text = $i;
             $answer->question_id = $val;
             $answer->save();
         }

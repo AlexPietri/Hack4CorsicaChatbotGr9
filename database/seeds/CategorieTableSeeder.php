@@ -25,7 +25,7 @@ class CategorieTableSeeder extends Seeder
 
         foreach ($array as $i => $val) {
             $categorie = new Categorie();
-            $categorie->label = $array[$i];
+            $categorie->label = $i;
             $categorie->description = $val;
             $categorie->save();
         }
