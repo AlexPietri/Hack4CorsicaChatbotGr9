@@ -3,7 +3,6 @@
 namespace App\Http\Conversations;
 
 use BotMan\BotMan\Messages\Conversations\Conversation;
-use BotMan\BotMan\Messages\Incoming\Answer;
 
 class Test2Conversation extends Conversation
 {
