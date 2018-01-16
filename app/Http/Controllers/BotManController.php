@@ -107,7 +107,7 @@ class BotManController extends Controller
             $res->getHeader('content-type');
             $results = json_decode($res->getBody()->getContents());
         } else {
-            $results = null;
+            var_dump($res);
         }
 
         return $results;
