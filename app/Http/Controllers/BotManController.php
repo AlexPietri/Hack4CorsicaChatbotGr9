@@ -26,7 +26,7 @@ class BotManController extends Controller
             $bot->reply(' ̶1̶3̶   5+8');
         });
 
-        $botman->hears('Projets qui recrute sur corte', function (Botman $bot, $api) {
+        $botman->hears('Projets qui recrute sur corte', function (Botman $bot) {
             $bot->types();
 
             $type = "projets";
@@ -37,7 +37,7 @@ class BotManController extends Controller
             $bot->reply($results);
         });
 
-        $botman->hears('Membres compétant en dev info à Ajaccio', function (Botman $bot, $api) {
+        $botman->hears('Membres compétant en dev info à Ajaccio', function (Botman $bot) {
             $bot->types();
 
             $type = "membres";
