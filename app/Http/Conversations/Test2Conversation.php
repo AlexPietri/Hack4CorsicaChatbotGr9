@@ -6,8 +6,6 @@ use BotMan\BotMan\Messages\Conversations\Conversation;
 
 class Test2Conversation extends Conversation
 {
-    protected $firstname;
-
     public function askMorePeople() {
         $this->ask('Ah, j\'ai remarqué qu\'il y avait beacoup trop de monde à afficher ! Soyez plus précis !', function() {
 
