@@ -2,11 +2,6 @@
 <html lang="en">
 	<head> 
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-		<!-- Website CSS style -->
-		
-
 		<!-- Website Font style -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 		<link rel="stylesheet" href="style.css">
@@ -17,6 +12,8 @@
 
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tagmanager/3.0.2/tagmanager.min.css">
+
+		<meta name="csrf-token" content="{{ csrf_token() }}">
 
 		<title>Admin</title>
 
@@ -121,7 +118,7 @@
 				box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
 
 			}
-			
+
 			span.input-group-addon i {
 				color: #009edf;
 				font-size: 17px;
@@ -142,7 +139,7 @@
 			<div class="row main">
 				<div class="main-login main-center">
 				<h5>Formulaire de création de question</h5>
-					<form class="" method="post" action="#">
+					<form class="" method="POST" action="{{ action('HomeController@add') }}">
 						
 						<div class="form-group">
 							<label for="name" class="cols-sm-2 control-label">Votre question</label>
@@ -181,20 +178,21 @@
 									<span class="input-group-addon"><i class="fa fa-menu-right fa-lg" aria-hidden="true"></i></span>
 									<select type="password" class="form-control" name="categorie" id="categorie">
   										<option></option>
-  										<option value="communiti">Communiti</option>
-  										<option value="signup">Inscription</option>
-  										<option value="contact">Contact</option>
-  										<option value="network">Réseau</option>
-  										<option value="other">Autres</option>
-  										<option value="evolution">évolution</option>
-  										<option value="function">Fonctionnalité</option>
-  										<option value="api">API</option> 										
+  										<option value="1">Communiti</option>
+  										<option value="2">Inscription</option>
+  										<option value="3">Contact</option>
+  										<option value="4">Réseau</option>
+  										<option value="5">Autres</option>
+  										<option value="6">évolution</option>
+  										<option value="7">Fonctionnalité</option>
+  										<option value="8">API</option>
 									</select>
 								</div>
 							</div>
 						</div>
+
 						<div class="form-group ">
-							<a href="http://deepak646.blogspot.in" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Valider</a>
+							<input type="submit" id="button" class="btn btn-primary btn-lg btn-block login-button" value="Valider">
 						</div>
 						
 					</form>
