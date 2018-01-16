@@ -104,8 +104,8 @@ class BotManController extends Controller
         ]);
 
         if ($res->getStatusCode() == 200) {
-            $res->getHeader('content-type');
-            $results = json_decode($res->getBody()->getContents(), true);
+            // $res->getHeader('content-type');
+            $results = $res->getBody()->getContents(); //json_decode($res->getBody()->getContents(), true);
         } else {
             // $results = null;
         }
