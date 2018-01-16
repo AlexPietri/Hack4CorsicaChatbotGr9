@@ -27,7 +27,10 @@ class BotManController extends Controller
             $type = "projets";
             $params = "&lieux=Corte,%20France";
             $results = $this->getAPI($api, $type, $params);
-            $bot->reply($results);
+            var_dump($results);
+            die();
+
+            // $bot->reply($results);
         });
 
         $botman->hears(' {text}', function (Botman $bot, $text) {
@@ -94,11 +97,10 @@ class BotManController extends Controller
                 'parametres' => $params,
             ]
         ]);
-        if ($res->getStatusCode() == 200) {
-            echo $res->getHeader('content-type');
-            echo $res->getBody();
 
-            die;
+        if ($res->getStatusCode() == 200) {
+            $res->getHeader('content-type');
+            $res->getBody();
         }
 
         // return $data;
