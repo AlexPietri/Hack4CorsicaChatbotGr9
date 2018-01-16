@@ -12,8 +12,6 @@ class TagTableSeeder extends Seeder
      */
     public function run()
     {
-        $tag = new Tag();
-
         $array = [
             "communiti",
             "fonctionne",
@@ -79,7 +77,9 @@ class TagTableSeeder extends Seeder
         ];
 
         foreach ($array as $value) {
+            $tag = new Tag();
             $tag->label = $value;
+            $tag->save();
         }
     }
 }

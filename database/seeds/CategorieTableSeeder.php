@@ -12,8 +12,6 @@ class CategorieTableSeeder extends Seeder
      */
     public function run()
     {
-        $categorie = new Categorie();
-
         $array = [
             "communiti" => "définition communiti",
             "signup" => "inscription",
@@ -26,8 +24,10 @@ class CategorieTableSeeder extends Seeder
         ];
 
         foreach ($array as $i => $val) {
+            $categorie = new Categorie();
             $categorie->label = $array[$i];
             $categorie->description = $val;
+            $categorie->save();
         }
     }
 }

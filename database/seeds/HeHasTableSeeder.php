@@ -15,5 +15,6 @@ class HeHasTableSeeder extends Seeder
         $hehas = new HeHas();
         $hehas->question_id = 1;
         $hehas->tag_id = 1;
+        $hehas->save();
     }
 }

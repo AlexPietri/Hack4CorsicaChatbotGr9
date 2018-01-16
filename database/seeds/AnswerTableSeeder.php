@@ -12,8 +12,6 @@ class AnswerTableSeeder extends Seeder
      */
     public function run()
     {
-        $answer = new Answer();
-
         $array = [
             "Communiti est un réseau qui comporte plusieurs facettes. La principale est un réseau social et professionnel qui a tendance à regrouper les personnes étant d’origine Corse ou ayant des affinités avec la Corse. Ce réseau est accessible via l’adresse https://www.communiti.corsica. \n Ce même réseau accueil en son sein une plateforme de projets où l’on peut trouver à la fois de l’emploi, des opportunités d’investissement mais aussi de la prestation de service. Il s’agit d’un outil très intéressant pour les entrepreneurs qui peuvent exprimer leur besoin et le présenter aux personnes du réseau dans le but que ces derniers puissent y répondre favorablement. \n\nAdossé à ce réseau digital, nous avons crée une plateforme d’évènements nommée Communiti Events, et qui tend à organiser des évènements dans le but que les membres du réseau puissent se rencontrer. \nEn réalité, nous essayons d’utiliser le numérique non pas comme une fin en soi mais plutôt comme un outil permettant de créer des liens entre les Hommes et Femmes de cette grande communauté. \nNous sommes en ce moment même en phase de réflexion pour réaliser ces évènements un peu partout ou des compatriotes se trouvent notre objectif principal avec cette plateforme d’évènement étant de connecter la Corse à sa Diaspora. \nCette plateforme d’évènement est accessible via l’adresse https://events.communiti.corsica" => 1,
             "C'est très simple, il suffit de créer un compte pour accéder au réseau. Une fois inscrit vous pourrez trouver de nombreuses informations telles que des offres d'emplois, des opportunités d'investissements, des services de publicité pour votre entreprise, et bien encore des prestations de services. Plus globalement, vous serez connecté aux Corses et Amis de la Corse du monde entier et pourrez rentrer en contact avec eux très facilement." => 2,
@@ -45,8 +43,10 @@ class AnswerTableSeeder extends Seeder
         ];
 
         foreach ($array as $i => $val) {
+            $answer = new Answer();
             $answer->text = $array[$i];
             $answer->question_id = $val;
+            $answer->save();
         }
     }
 }

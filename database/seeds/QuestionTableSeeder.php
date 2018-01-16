@@ -12,8 +12,6 @@ class QuestionTableSeeder extends Seeder
      */
     public function run()
     {
-        $question = new Question();
-
         $array = [
             "Qu'est ce que communiti" => 1,
             "Comment fonctionne communiti" => 1,
@@ -58,8 +56,10 @@ class QuestionTableSeeder extends Seeder
         ];
 
         foreach ($array as $i => $val) {
+            $question = new Question();
             $question->text = $array[$i];
             $question->categorie_id = $val;
+            $question->save();
         }
     }
 }
