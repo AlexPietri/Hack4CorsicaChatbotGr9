@@ -36,7 +36,7 @@ class BotManController extends Controller
             $bot->reply($results);
         });
 
-        $botman->hears('Taux en {currency}', function ($bot, $currency) {
+        $botman->hears('Taux en {currency} ', function ($bot, $currency) {
             $bot->types();
             $results = $this->getCurrency($currency);
             $bot->reply($results);
