@@ -97,6 +97,8 @@ class BotManController extends Controller
         if ($res->getStatusCode() == 200) {
             echo $res->getHeader('content-type');
             echo $res->getBody();
+
+            die;
         }
 
         // return $data;
