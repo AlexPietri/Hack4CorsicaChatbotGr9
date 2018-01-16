@@ -45,8 +45,6 @@ class BotManController extends Controller
         $botman->hears('{text} ?', function (Botman $bot, $text) {
             $bot->types();
 
-            $result = NULL;
-
             // Tableau de texte avec la séparation espace
             if (preg_match("[\s]", $text)) {
                 $array = explode(" ", $text);
@@ -58,13 +56,14 @@ class BotManController extends Controller
                     $query[] = DB::table('questions')->select('id')->where('text', 'like', '%'.$value.'%')->first();
                 }
 
-                $result->text = "Les réponses";
+                $text = "Les réponses";
+                $bot->reply($text);
             } else {
                 $IDQuestion = DB::table('questions')->select('id')->where('text', 'like', '%'.$text.'%')->first();
                 $result = DB::table('answers')->select('text')->where('question_id', '=', $IDQuestion->id)->first();
-            }
 
-            $bot->reply($result->text);
+                $bot->reply($result->text);
+            }
         });
 
         $botman->fallback(function($bot) {
