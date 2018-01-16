@@ -54,7 +54,7 @@ class QuestionTableSeeder extends Seeder
             "Qu’elle est le premier projet fini" => 8,
             "Qu’elle est le dernier projet mener à bien" => 8,
             "Qu’elle est le projet le plus récent" => 8,
-        ]
+        ];
 
         foreach ($array as $i => $val) {
             $question->text = $array[$i];

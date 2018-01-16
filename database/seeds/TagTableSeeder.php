@@ -75,7 +75,7 @@ class TagTableSeeder extends Seeder
             "excellent",
             "génial",
             "bien",
-        ]
+        ];
 
         foreach ($array as $i) {
             $tag->label = $array[$i];

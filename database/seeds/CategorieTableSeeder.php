@@ -22,7 +22,7 @@ class CategorieTableSeeder extends Seeder
             "evolution" => "évolution",
             "functionality" => "fonctionnalité",
             "API" => "API",
-        ]
+        ];
 
         foreach ($array as $i => $val) {
             $categorie->label = $array[$i];

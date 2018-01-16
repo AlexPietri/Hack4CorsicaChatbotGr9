@@ -41,7 +41,7 @@ class AnswerTableSeeder extends Seeder
             "Je vais très bien merci ! Un peu les jambes engourdies car je suis resté un peu trop longtemps assis aujourd'hui mais sinon tout va bien :) Et vous comment allez vous ?" => 24,
             "N'est-ce pas … :)" => 25,
             "Effectivement, cela est possible ! Il suffit d'ajouter un membre en tant qu'ami et que celui accepte votre demande pour que vous puissiez converser grâce au service de messagerie instantanée intégrée au site internet" => 26,
-        ]
+        ];
 
         foreach ($array as $i) {
             $answer->text = $array[$i];
