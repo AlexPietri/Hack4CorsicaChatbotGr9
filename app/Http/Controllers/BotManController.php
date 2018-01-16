@@ -34,7 +34,7 @@ class BotManController extends Controller
                     $query[] = DB::table('questions')->select('id')->where('text', 'like', '%'.$value.'%')->get();
                 }
 
-                $result = "Les réponses".$query;
+                $result = "Les réponses";
             } else {
                 $IDQuestion = DB::table('questions')->select('id')->where('text', 'like', '%'.$text.'%')->get();
                 $result = DB::table('answers')->select('id')->where('question_id', '=', $IDQuestion)->get();
