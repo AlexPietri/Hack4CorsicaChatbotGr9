@@ -3,6 +3,7 @@
 namespace App\Http\Conversations;
 
 use BotMan\BotMan\Messages\Conversations\Conversation;
+use App\Http\Conversations\Incoming\Answer;
 
 class Test2Conversation extends Conversation
 {
@@ -11,7 +12,7 @@ class Test2Conversation extends Conversation
     public function askMorePeople() {
         $this->ask('Ah, j\'ai remarqué qu\'il y avait beacoup trop de monde à afficher ! Soyez plus précis !', function(Answer $answer) {
             // Save result
-            // $this->firstname = $answer->getText();
+            $this->firstname = $answer->getText();
 
             $this->say('Je traite votre demande, très cher ...');
             $this->checkName();
