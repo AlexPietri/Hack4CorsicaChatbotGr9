@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', function () {
+    return view('welcome');
+});
+
 Route::get('/admin', function () {
     return view('admin');
 })->middleware('auth');
@@ -25,4 +29,8 @@ Route::match(['get', 'post'], '/botman', 'BotManController@handle');
 Route::get('/botman/tinker', 'BotManController@tinker');
 Route::get('/botman/web', 'BotManController@web');
 
-Route::post('/add', 'HomeController@add')->name('addQuestionAnswer');
+Route::post('/add', function () {
+    return view('admin');
+});
+
+// Route::post('/add', 'HomeController@add')->name('addQuestionAnswer');
