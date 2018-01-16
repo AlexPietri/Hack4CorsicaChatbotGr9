@@ -139,7 +139,7 @@
 			<div class="row main">
 				<div class="main-login main-center">
 				<h5>Formulaire de création de question</h5>
-					<form class="" method="POST" action="../add">
+					<form class="" method="POST" action="../admin">
 						
 						<div class="form-group">
 							<label for="name" class="cols-sm-2 control-label">Votre question</label>
