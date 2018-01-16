@@ -93,7 +93,7 @@ class BotManController extends Controller
     public function getAPI($api, $type, $params)
     {
         $client = new Client();
-        $res = $client->post('https://dev.communiti.corsica/app/test.php', {
+        $res = $client->post('https://dev.communiti.corsica/app/test.php', [
             'form_params' => [
                 'action' => 'list.php',
                 'email' => 'univ@corte.php',
@@ -101,7 +101,7 @@ class BotManController extends Controller
                 'type' => $type,
                 'parametres' => $params,
             ]
-        });
+        ]);
 
         if ($res->getStatusCode() == 200) {
             $res->getHeader('content-type');
