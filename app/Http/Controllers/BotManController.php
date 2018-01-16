@@ -45,6 +45,8 @@ class BotManController extends Controller
         $botman->hears('{text} ?', function (Botman $bot, $text) {
             $bot->types();
 
+            $result = NULL;
+
             // Tableau de texte avec la séparation espace
             if (preg_match("[\s]", $text)) {
                 $array = explode(" ", $text);
