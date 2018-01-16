@@ -21,6 +21,10 @@ class BotManController extends Controller
             $bot->reply('Coucou toi :)');
         });
 
+        $botman->hears(13, function (BotMan $bot) {
+            $bot->reply('Coucou toi :)');
+        });
+
         $botman->hears('test {api}', function (Botman $bot, $api) {
             $bot->types();
 
@@ -93,7 +97,7 @@ class BotManController extends Controller
                 'action' => 'list.php',
                 'email' => 'univ@corte.php',
                 'pwd' => 'corte',
-                'types' => $type,
+                'type' => $type,
                 'parametres' => $params,
             ]
         ]);
