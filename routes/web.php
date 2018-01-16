@@ -24,3 +24,5 @@ Auth::routes();
 Route::match(['get', 'post'], '/botman', 'BotManController@handle');
 Route::get('/botman/tinker', 'BotManController@tinker');
 Route::get('/botman/web', 'BotManController@web');
+
+Route::post('/add/new/question/answer', 'HomeController@add')->name('addQuestionAnswer');

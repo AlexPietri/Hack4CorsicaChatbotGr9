@@ -139,7 +139,7 @@
 			<div class="row main">
 				<div class="main-login main-center">
 				<h5>Formulaire de création de question</h5>
-					<form class="" method="POST" action="{{ action('HomeController@add') }}">
+					<form class="" method="POST" action="{{ route('addQuestionAnswer') }}">
 						
 						<div class="form-group">
 							<label for="name" class="cols-sm-2 control-label">Votre question</label>
