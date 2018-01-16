@@ -31,7 +31,7 @@ class BotManController extends Controller
 
             $type = "projets";
             $params = "&lieux=Corte,%20France";
-            $results = $this->getAPI($api, $type, $params);
+            $results = $this->getAPI($type, $params);
             // $results = $results["villes"];
             
             $bot->reply($results);
@@ -42,7 +42,7 @@ class BotManController extends Controller
 
             $type = "membres";
             $params = "&lieux=Ajaccio,%20France";
-            $results = $this->getAPI($api, $type, $params);
+            $results = $this->getAPI($type, $params);
             // $results = $results["villes"];
             
             $bot->reply($results);
@@ -107,7 +107,7 @@ class BotManController extends Controller
         return view('web');
     }
 
-    public function getAPI($api, $type, $params)
+    public function getAPI($type, $params)
     {
         $client = new Client();
         $res = $client->post('https://dev.communiti.corsica/app/test.php', [
