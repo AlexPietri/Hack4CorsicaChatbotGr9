@@ -105,12 +105,12 @@ class BotManController extends Controller
 
         if ($res->getStatusCode() == 200) {
             $res->getHeader('content-type');
-            $results = json_decode($res->getBody()->getContents());
+            $results = $res->getBody()->getContents();//json_decode($res->getBody()->getContents());
         } else {
             // $results = null;
         }
 
-        return $res;
+        return $results;
     }
 
     public function getCurrency($currency)
