@@ -11,6 +11,8 @@ use DB;
 
 class BotManController extends Controller
 {
+    protected $country;
+
     /**
      * Place your BotMan logic here.
      */
@@ -19,7 +21,15 @@ class BotManController extends Controller
         $botman = app('botman');
 
         $botman->hears('Bonjour', function (BotMan $bot) {
-            $bot->reply('Coucou toi :)');
+            $bot->reply('Coucou toi 👦');
+        });
+
+        $botman->hears('Ton nom', function (BotMan $bot) {
+            $bot->reply('Je m\'appelle Pasquale');
+        });
+
+        $botman->hears('nom', function (BotMan $bot) {
+            $bot->reply('I am Batman 🤖');
         });
 
         $botman->hears(13, function (BotMan $bot) {
@@ -34,22 +44,36 @@ class BotManController extends Controller
             $results = $this->getAPI($type, $params);
 
             $text = "";
+            $i = 1;
             foreach ($results as $value) {
-                $text = "".$value["nom"]." | \n\n https://www.communiti.corsica/page_projet.php?idProjet=".$value["id"];
+                if ($i <= 3) {
+                    $text .= "".$value["nom"]." | \n\n https://www.communiti.corsica/page_projet.php?idProjet=".$value["id"];
+                }
             }
             
             $bot->reply($text);
         });
 
-        $botman->hears('Membres compétant en dev info à {city}', function ($bot, $city) {
+        $botman->hears('Membres compétents en dev info à {city}', function ($bot, $city) {
             $bot->types();
 
             $type = "membres";
             $params = "&lieux=".$city.",%20France";
             $results = $this->getAPI($type, $params);
-            $results = $results[0]["villes"];
+
+            if (count($results) > 3) {
+                $bot->startConversation(new OnboardingConversation);
+            }
+
+            $text = "";
+            $i = 1;
+            foreach ($results as $value) {
+                if ($i <= 3) {
+                    $text .= "".$value["nom"]." | \n\n https://www.communiti.corsica/profil_membre.php?idProfil=".$value["id"];
+                }
+            }
             
-            $bot->reply($results);
+            $bot->reply($text);
         });
 
         $botman->hears('- {text}', function ($bot, $text) {
