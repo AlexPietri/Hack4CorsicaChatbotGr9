@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use BotMan\BotMan\BotMan;
 use Illuminate\Http\Request;
 use App\Conversations\ExampleConversation;
+use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
 use DB;
 
@@ -90,7 +91,7 @@ class BotManController extends Controller
     public function getAPI($api, $type, $params)
     {
         $client = new Client();
-        $res = $client->request('POST', 'https://dev.communiti.corsica/app/test.php', [
+        $res = $client->post('https://dev.communiti.corsica/app/test.php', [
             'form_params' => [
                 'action' => 'list.php',
                 'email' => 'univ@corte.php',
