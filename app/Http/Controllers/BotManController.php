@@ -26,22 +26,22 @@ class BotManController extends Controller
             $bot->reply(' ̶1̶3̶   5+8');
         });
 
-        $botman->hears('Projets qui recrute sur corte', function (Botman $bot) {
+        $botman->hears('Projets qui recrute sur {city}', function ($bot, $city) {
             $bot->types();
 
             $type = "projets";
-            $params = "&lieux=Corte,%20France";
+            $params = "&lieux=".$city.",%20France";
             $results = $this->getAPI($type, $params);
             // $results = $results["villes"];
             
             $bot->reply($results);
         });
 
-        $botman->hears('Membres compétant en dev info à Ajaccio', function (Botman $bot) {
+        $botman->hears('Membres compétant en dev info à {city}', function ($bot, $city) {
             $bot->types();
 
             $type = "membres";
-            $params = "&lieux=Ajaccio,%20France";
+            $params = "&lieux=".$city.",%20France";
             $results = $this->getAPI($type, $params);
             // $results = $results["villes"];
             
@@ -54,7 +54,7 @@ class BotManController extends Controller
             $bot->reply($results);
         });
 
-        $botman->hears('- {text} ?', function ($bot, $text) {
+        $botman->hears('- {text}', function ($bot, $text) {
             $bot->types();
 
             // Tableau de texte avec la séparation espace
