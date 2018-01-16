@@ -3,7 +3,7 @@
         <div class="arrow"></div>
         <ul class="ChatLog">
             <li class="ChatLog__entry" v-for="message in messages" :class="{'ChatLog__entry_mine': message.isMine}">
-                <img class="ChatLog__avatar" src="/logo.png" />
+                <img class="ChatLog__avatar" src="https://www.communiti.corsica/images/logo-ent_w.png" />
                 <p class="ChatLog__message">{{ message.text }}</p>
             </li>
         </ul>
