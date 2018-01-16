@@ -17,7 +17,7 @@ class QuestionTableSeeder extends Seeder
             "Comment fonctionne communiti" => 1,
             "Qui peut s'inscrire sur communiti" => 2,
             "Comment rejoindre le réseau" => 2,
-            "Quand et comment l idée de créer communiti est-elle née" => 1,
+            "Quand et comment l'idée de créer communiti est-elle née" => 1,
             "Quelles sont les particularités de ce réseau" => 4,
             "Quelles ont été les récentes évolutions de communiti" => 6,
             "Quels sont vos projets pour Communiti" => 6,

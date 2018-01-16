@@ -23,6 +23,7 @@ class TagTableSeeder extends Seeder
             "idée",
             "née",
             "particularités",
+            "réseau",
             "avantage",
             "inconvénient",
             "évolution",
