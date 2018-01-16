@@ -13,7 +13,6 @@ class ExampleConversation extends Conversation
     /**
      * First question
      */
-    /*
     public function askReason()
     {
         $question = Question::create("Huh - you woke me up. What do you need?")
@@ -34,23 +33,6 @@ class ExampleConversation extends Conversation
                 }
             }
         });
-    }
-    */
-   
-   protected $firstname;
-
-    public function askMorePeople() {
-        $this->ask('Ah, j\'ai remarqué qu\'il y avait beacoup trop de monde à afficher ! Soyez plus précis !', function(Answer $answer) {
-            // Save result
-            $this->firstname = $answer->getText();
-
-            $this->say('Je traite votre demande, très cher ...');
-            $this->checkName();
-        });
-    }
-
-    public function checkName() {
-        $this->say('J\'ai trouvé la personne que vous cherchez !');
     }
 
     /**
