@@ -20,6 +20,12 @@ class BotManController extends Controller
             $bot->reply('Coucou toi :)');
         });
 
+        $botman->hears('Give me {currency} rates', function ($bot, $currency) {
+            $bot->types();
+            $results = $urrency;
+            $bot->reply($results);
+        });
+
         /*
         $botman->hears('{text}', function ($bot, $text) {
             $bot->types();
