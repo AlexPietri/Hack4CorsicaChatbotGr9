@@ -44,8 +44,9 @@ class AnswerTableSeeder extends Seeder
             "Effectivement, cela est possible ! Il suffit d'ajouter un membre en tant qu'ami et que celui accepte votre demande pour que vous puissiez converser grâce au service de messagerie instantanée intégrée au site internet" => 26,
         ];
 
-        foreach ($array as $i) {
+        foreach ($array as $i => $val) {
             $answer->text = $array[$i];
+            $answer->question_id = $val;
         }
     }
 }
