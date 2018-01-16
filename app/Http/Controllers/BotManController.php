@@ -107,10 +107,10 @@ class BotManController extends Controller
             $res->getHeader('content-type');
             $results = json_decode($res->getBody()->getContents());
         } else {
-            var_dump($res);
+            // $results = null;
         }
 
-        return $results;
+        return $res;
     }
 
     public function getCurrency($currency)
