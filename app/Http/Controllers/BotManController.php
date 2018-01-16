@@ -77,10 +77,10 @@ class BotManController extends Controller
                 $bot->reply($result->text);
             }*/
 
-            $IDQuestion = DB::table('questions')->select('id')->where('text', 'like', '%'.$text.'%')->first();
-            $result = DB::table('answers')->select('text')->where('question_id', '=', $IDQuestion->id)->first();
+            //$IDQuestion = DB::table('questions')->select('id')->where('text', 'like', '%'.$text.'%')->first();
+            //$result = DB::table('answers')->select('text')->where('question_id', '=', $IDQuestion->id)->first();
 
-            $bot->reply($result->text);
+            $bot->reply($text);
         });
 
         $botman->fallback(function($bot) {
