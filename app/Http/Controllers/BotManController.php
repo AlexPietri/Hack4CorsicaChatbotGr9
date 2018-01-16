@@ -22,7 +22,7 @@ class BotManController extends Controller
 
         $botman->hears('Give me {currency} rates', function (Botman $bot, $currency) {
             $bot->types();
-            $results = $urrency;
+            $results = $currency;
             $bot->reply($results);
         });
 
