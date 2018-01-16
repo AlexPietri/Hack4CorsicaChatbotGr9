@@ -35,7 +35,7 @@ class BotManController extends Controller
 
             $text = "";
             foreach ($results as $value) {
-                $text = "".$value["nom"]." | \n\n https://www.communiti.corsica/page_projet.php?idProjet=".$value["id"].;
+                $text = "".$value["nom"]." | \n\n https://www.communiti.corsica/page_projet.php?idProjet=".$value["id"];
             }
             
             $bot->reply($text);
